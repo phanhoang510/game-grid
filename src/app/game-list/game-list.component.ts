@@ -14,7 +14,8 @@ export class GameListComponent implements OnInit {
   listsAll: IGame[] = [];
   currentPage = 0;
   pageSize = 6;
-  
+  numberOfPage = 0;
+
   constructor(private gameService: GameService, private router: Router) {
     console.log(window.innerWidth);
     const widthWindow = window.innerWidth;
@@ -28,6 +29,7 @@ export class GameListComponent implements OnInit {
     if (widthWindow >= 1439 && widthWindow < 1920) {
       this.pageSize = 8;
     }
+    this.numberOfPage = Math.ceil(this.gameService.total / this.pageSize);
   }
 
   ngOnInit(): void {
@@ -47,17 +49,23 @@ export class GameListComponent implements OnInit {
       });
   }
   nextPage() {
-    this.currentPage += 1;
-    this.getListGame();
+    if (this.currentPage + 1 === this.numberOfPage) {
+      this.currentPage = 0;
+      this.getListGame();
+    } else {
+      this.currentPage += 1;
+      this.getListGame();
+    }
+    
   }
   previous() {
-    if (!this.currentPage) {
-      return;
+    if (this.currentPage === 0) {
+      this.currentPage = this.numberOfPage;
     }
     this.currentPage -= 1;
     this.getListGame();
   }
   navigateDetail(id: number) {
-    this.router.navigateByUrl(`game-detail/${id}`)
+    this.router.navigateByUrl(`game-detail/${id}`);
   }
 }
