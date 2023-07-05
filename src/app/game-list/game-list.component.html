@@ -1,0 +1,17 @@
+<div class="game-list-page">
+  <div class="header">
+    <h2>Most Popular</h2>
+    <div class="show-all">
+      <span>Show all</span><img src="./assets/images/arrow-icon.PNG" />
+    </div>
+  </div>
+  <div class="content">
+    <div class="grid-container">
+      <div class="grid-item" *ngFor="let item of listGame$ | async">
+        <img class="type-game" [src]="item.typeGame" />
+        <img class="image-game" [src]="item.srcImg" />
+        <span>{{ item.nameGame }}</span>
+      </div>
+    </div>
+  </div>
+</div>
