@@ -1,1 +1,10 @@
-<p>game-detail works!</p>
+<div *ngIf="detail" class="detail-page">
+  <div class="item-detail" >
+    <img class="type-game" [src]="detail.typeGame" />
+    <img class="image-game" [src]="detail.srcImg" />
+    <div class="title">
+      <h2>{{ detail.nameGame }}</h2>
+    </div>
+  </div>
+
+</div>

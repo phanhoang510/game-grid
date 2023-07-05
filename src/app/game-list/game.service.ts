@@ -7,19 +7,22 @@ import { IGame } from './game.model';
 })
 export class GameService {
   namesImageGame = [
-    {fileName:'12Coins.webp', nameGame: '12 Coins' },
-    {fileName:'BookofDead.webp', nameGame: 'Book of Dead' },
-    {fileName:'BookOfRampage.webp', nameGame: 'Book Of Rampage' },
-    {fileName:'BuffaloTrail.webp', nameGame: 'Buffalo Trail' },
-    {fileName:'MoneyTrain2.webp', nameGame: 'Money Train 2' },
-    {fileName:'RaptorDoublemax.webp', nameGame: 'Raptor Double max' },
-    {fileName:'WinzToTheMoon.webp', nameGame: ' Winz To The Moon' },
+    { fileName: '12Coins.webp', nameGame: '12 Coins' },
+    { fileName: 'BookofDead.webp', nameGame: 'Book of Dead' },
+    { fileName: 'BookOfRampage.webp', nameGame: 'Book Of Rampage' },
+    { fileName: 'BuffaloTrail.webp', nameGame: 'Buffalo Trail' },
+    { fileName: 'MoneyTrain2.webp', nameGame: 'Money Train 2' },
+    { fileName: 'RaptorDoublemax.webp', nameGame: 'Raptor Double max' },
+    { fileName: 'WinzToTheMoon.webp', nameGame: ' Winz To The Moon' },
   ];
   namesImageType = ['hot.svg', 'new.svg', 'promo.svg'];
+  arrayGames: IGame[] = [];
+  total = 100;
+
   constructor() {}
 
-  randomListGames(length: number) {
-    const array: IGame[] = Array(length)
+  randomListGames() {
+    this.arrayGames = Array(this.total)
       .fill(undefined)
       .map((_, i) => {
         // random file background game
@@ -38,9 +41,9 @@ export class GameService {
           id: i + 1,
           srcImg: `./assets/images/${name.fileName}`,
           typeGame: `./assets/images/${type}`,
-          nameGame:  `./assets/images/${name.nameGame}`,
+          nameGame: name.nameGame,
         };
       });
-      return array;
+    return this.arrayGames;
   }
 }

@@ -1,0 +1,19 @@
+.detail-page {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  .item-detail {
+    position: relative;
+    .type-game {
+      position: absolute;
+      width: 65px;
+      top: 25px;
+      left: -3px;
+    }
+    .image-game {
+      border-radius: 10px;
+    }
+  }
+}

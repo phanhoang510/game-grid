@@ -6,11 +6,24 @@
     </div>
   </div>
   <div class="content">
+    <div class="previous" (click)="previous()">
+      <div class="btn-previous-page">
+        <img src="./assets/images/pre.PNG"/>
+      </div>
+    </div>
     <div class="grid-container">
-      <div class="grid-item" *ngFor="let item of listsGame">
+      <div class="grid-item" *ngFor="let item of listsGame" (click)="navigateDetail(item.id)">
         <img class="type-game" [src]="item.typeGame" />
         <img class="image-game" [src]="item.srcImg" />
-        <span>{{ item.nameGame }}</span>
+        <div class="title">
+          <h2>{{ item.nameGame }}</h2>
+          <img class="info-icon" src="./assets/images/infor-icon.PNG" />
+        </div>
+      </div>
+    </div>
+    <div class="next">
+      <div class="btn-next-page" (click)="nextPage()">
+        <img src="./assets/images/next.PNG"/>
       </div>
     </div>
   </div>

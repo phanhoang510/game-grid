@@ -22,6 +22,25 @@
   }
   .content {
     padding-top: 30px;
+    display: flex;
+    align-items: center;
+    .btn-previous-page {
+      background: #213040;
+      padding: 20px 2px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+
+    }
+    .btn-next-page {
+      background: #213040;
+      padding: 20px 2px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .previous, .next {
+      margin-bottom: 66px;
+      cursor: pointer;
+    }
     .grid-item {
       padding: 10px;
       position: relative;
@@ -35,6 +54,17 @@
         border-radius: 10px;
       }
     }
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      .info-icon {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    
   }
 }
 .grid-container {
@@ -42,13 +72,14 @@
   grid-template-columns: auto auto auto auto;
 }
 
-
-// Small devices (large handsets, tablets)
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) {
   .grid-container {
     grid-template-columns: auto auto auto;
   }
   .grid-item {
+    .image-game {
+      width: 150px;
+    }
   }
 }
 
@@ -57,6 +88,11 @@
   .grid-container {
     grid-template-columns: auto auto auto;
   }
+  .grid-item {
+    .image-game {
+      width: 300px;
+    }
+  }
 }
 
 // Large devices (desktops < 1080p)
@@ -64,16 +100,32 @@
   .grid-container {
     grid-template-columns: auto auto auto auto;
   }
+  .grid-item {
+    .image-game {
+      width: 320px;
+    }
+  }
 }
 
 // Extra Large devices (desktops >= 1080p)
-@media only screen and (min-width: 1919px) {
+@media only screen and (min-width: 1920px) {
   .grid-container {
     grid-template-columns: auto auto auto auto auto;
   }
   .grid-item {
     .image-game {
-      width: 340px;
+      width: 320px;
+    }
+  }
+}
+
+@media only screen and (min-width: 2600px) {
+  .grid-container {
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+  .grid-item {
+    .image-game {
+      width: 320px;
     }
   }
 }
