@@ -7,7 +7,7 @@
   </div>
   <div class="content">
     <div class="grid-container">
-      <div class="grid-item" *ngFor="let item of listGame$ | async">
+      <div class="grid-item" *ngFor="let item of listsGame">
         <img class="type-game" [src]="item.typeGame" />
         <img class="image-game" [src]="item.srcImg" />
         <span>{{ item.nameGame }}</span>

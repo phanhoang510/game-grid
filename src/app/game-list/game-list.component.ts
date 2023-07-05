@@ -14,7 +14,6 @@ export class GameListComponent implements OnInit {
   currentPage = 0;
   pageSize = 4;
   total = 100;
-  listGame$: Observable<IGame[]>;
   constructor(private gameService: GameService) {
     console.log(window.innerWidth);
     this.listsAll = this.gameService.randomListGames(this.total);
@@ -22,7 +21,7 @@ export class GameListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listGame$ = this.getListGame();
+    this.getListGame();
   }
 
   getListGame() {
@@ -31,6 +30,10 @@ export class GameListComponent implements OnInit {
       (this.currentPage + 1) * this.pageSize
     );
 
-    return from(list).pipe(delay(500));
+    return of(list)
+      .pipe(delay(500))
+      .subscribe((item) => {
+        this.listsGame = item;
+      });
   }
 }
