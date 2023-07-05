@@ -52,6 +52,7 @@
       }
       .image-game {
         border-radius: 10px;
+        width: 100%;
       }
     }
     .title {
@@ -76,11 +77,7 @@
   .grid-container {
     grid-template-columns: auto auto auto;
   }
-  .grid-item {
-    .image-game {
-      width: 150px;
-    }
-  }
+  
 }
 
 // Medium devices (large tablets)
@@ -88,11 +85,7 @@
   .grid-container {
     grid-template-columns: auto auto auto;
   }
-  .grid-item {
-    .image-game {
-      width: 300px;
-    }
-  }
+  
 }
 
 // Large devices (desktops < 1080p)
@@ -100,11 +93,7 @@
   .grid-container {
     grid-template-columns: auto auto auto auto;
   }
-  .grid-item {
-    .image-game {
-      width: 320px;
-    }
-  }
+  
 }
 
 // Extra Large devices (desktops >= 1080p)
@@ -112,20 +101,10 @@
   .grid-container {
     grid-template-columns: auto auto auto auto auto;
   }
-  .grid-item {
-    .image-game {
-      width: 320px;
-    }
-  }
 }
 
 @media only screen and (min-width: 2600px) {
   .grid-container {
     grid-template-columns: auto auto auto auto auto auto;
-  }
-  .grid-item {
-    .image-game {
-      width: 320px;
-    }
   }
 }

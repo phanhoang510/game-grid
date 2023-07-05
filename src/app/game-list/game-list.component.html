@@ -14,7 +14,9 @@
     <div class="grid-container">
       <div class="grid-item" *ngFor="let item of listsGame" (click)="navigateDetail(item.id)">
         <img class="type-game" [src]="item.typeGame" />
-        <img class="image-game" [src]="item.srcImg" />
+        <div>
+          <img class="image-game" [src]="item.srcImg" />
+        </div>
         <div class="title">
           <h2>{{ item.nameGame }}</h2>
           <img class="info-icon" src="./assets/images/infor-icon.PNG" />
