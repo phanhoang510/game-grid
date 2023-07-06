@@ -18,17 +18,19 @@ export class GameListComponent implements OnInit {
 
   constructor(private gameService: GameService, private router: Router) {
     console.log(window.innerWidth);
-    const widthWindow = window.innerWidth;
     this.listsAll = this.gameService.randomListGames();
-    if (widthWindow <= 1439) {
-      this.pageSize = 6;
-    }
-    if (widthWindow >= 1920) {
-      this.pageSize = 10;
-    }
-    if (widthWindow >= 1439 && widthWindow < 1920) {
+
+    const widthWindow = window.innerWidth;
+    if (widthWindow > 1025) {
       this.pageSize = 8;
     }
+    if (widthWindow > 1441) {
+      this.pageSize = 10;
+    }
+    if (widthWindow > 1921) {
+      this.pageSize = 12;
+    }
+
     this.numberOfPage = Math.ceil(this.gameService.total / this.pageSize);
   }
 
@@ -56,7 +58,6 @@ export class GameListComponent implements OnInit {
       this.currentPage += 1;
       this.getListGame();
     }
-    
   }
   previous() {
     if (this.currentPage === 0) {
